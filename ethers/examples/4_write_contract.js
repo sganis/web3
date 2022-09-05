@@ -20,21 +20,26 @@ const main = async () => {
     "function transfer(address to, uint amount) returns (bool)",
   ];
 
-  const address = "";
+  const address = "0xcFB52c81e168e88D2d4cb1A27E3f76BF8538fc73";
   const contract = new ethers.Contract(address, ERC20_ABI, provider);
 
-  const balance = await contract.balanceOf(address0);
+  const balance1 = await contract.balanceOf(address1);
+  const balance0 = await contract.balanceOf(address0);
 
-  console.log(`\nReading from ${address}\n`);
-  console.log(`Balance of sender: ${balance}\n`);
+  console.log(`\nReading from ${address}`);
+  console.log(`Balance of sender: ${balance1}`);
+  console.log(`Balance of reciever: ${balance0}`);
 
-  const contractWithSigner = contract.connect(signer0);
+  const contractWithSigner = contract.connect(signer1);
+  console.log(`Contract with signer0 created`);
 
-  const tx = await contractWithSigner.transfer(signer1, balance);
+  const tx = await contractWithSigner.transfer(address0, balance1);
+
+  console.log(`Transfered ok\n`);
   console.log(tx);
 
-  const balanceOfSender = await contract.balanceOf(signer0);
-  const balanceOfReciever = await contract.balanceOf(signer1);
+  const balanceOfSender = await contract.balanceOf(address1);
+  const balanceOfReciever = await contract.balanceOf(address0);
 
   console.log(`\nBalance of sender: ${balanceOfSender}`);
   console.log(`Balance of reciever: ${balanceOfReciever}\n`);

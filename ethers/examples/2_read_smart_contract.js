@@ -29,7 +29,7 @@ const main = async () => {
 
   const balance = await contract.balanceOf(MY_ADDRESS_1);
 
-  console.lMY_og(`Balance Returned: ${balance}`);
+  console.log(`Balance Returned: ${balance}`);
   console.log(`Balance Formatted: ${ethers.utils.formatEther(balance)}\n`);
 };
 
