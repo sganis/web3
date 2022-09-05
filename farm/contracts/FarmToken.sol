@@ -7,7 +7,6 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract FarmToken is ERC20 {
     using Address for address;
-    //using SafeMath for uint256; // As of Solidity v0.8.0, mathematical operations can be done safely without the need for SafeMath
     using SafeERC20 for IERC20;
 
     IERC20 public token;
